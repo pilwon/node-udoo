@@ -1,0 +1,24 @@
+{
+  "name": "udoo",
+  "description": "UDOO client library for Node.js",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Pilwon Huh",
+    "email": "pilwon@gmail.com"
+  },
+  "homepage": "https://github.com/pilwon/node-udoo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pilwon/node-udoo.git"
+  },
+  "keywords": [
+    "udoo"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  }
+}
