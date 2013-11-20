@@ -11,9 +11,9 @@
     $ npm install udoo
 
 
-## Usage
+## Usage ([Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage))
 
-### [Blink](http://arduino.cc/en/Tutorial/Blink) example (asynchronous version)
+### Asynchronous version
 
 ```js
 var udoo = require('udoo');
@@ -29,7 +29,35 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### [Blink](http://arduino.cc/en/Tutorial/Blink) example (synchronous version)
+### Another asynchronous version w/ [Async.js](https://github.com/caolan/async)
+
+```js
+var async = require('async'),
+    udoo = require('../..');
+
+var led = udoo.outputPin(13);
+
+async.forever(function (cb) {
+  async.series([
+    function (cb) {
+      led.setHigh(cb);
+    },
+    function (cb) {
+      setTimeout(cb, 1000);
+    },
+    function (cb) {
+      led.setLow(cb);
+    },
+    function (cb) {
+      setTimeout(cb, 1000);
+    }
+  ], cb);
+}, function (err) {
+  throw err;
+});
+```
+
+### Synchronous version (not recommended)
 
 ```js
 var udoo = require('udoo');
@@ -51,16 +79,16 @@ setInterval(function () {
 // Create new pin
 .inputPin(name)
 .outputPin(name)
-.pin(name)         // direction must be set by .setInputMode() / .setOutputMode()
+.pin(name)        // direction must be set by .setInputMode() / .setOutputMode()
 
 // Chainable pin commands (append `Sync` for synchronous calls)
-.get()
-.getMode()
-.set()
-.setHigh()
-.setInputMode()
-.setLow()
-.setOutputMode()
+.get()            // returns `true` for high/1, `false` for low/0
+.getMode()        // returns one of `udoo.PIN_MODE.*`
+.set(value)       // set value. (value must be boolean)
+.setHigh()        // sets true/high/1
+.setInputMode()   // sets input mode.
+.setLow()         // sets false/low/0
+.setOutputMode()  // 
 ```
 
 
