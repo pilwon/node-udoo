@@ -1,6 +1,6 @@
 {
   "name": "udoo",
-  "description": "UDOO client library for Node.js",
+  "description": "UDOO GPIO abstraction library for Node.js",
   "version": "0.1.0",
   "license": "MIT",
   "author": {
@@ -16,9 +16,16 @@
     "udoo"
   ],
   "dependencies": {
+    "lodash": "*"
   },
   "devDependencies": {
+    "colors": "*",
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "matchdep": "*"
   },
   "scripts": {
+    "prepublish": "npm prune"
   }
 }
