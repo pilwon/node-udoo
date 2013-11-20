@@ -39,18 +39,13 @@ var led = udoo.outputPin(13),
 var async = require('async'),
     udoo = require('udoo');
 
-var led = udoo.outputPin(13);
+var led = udoo.outputPin(13),
+    on = false;
 
 async.forever(function (cb) {
   async.series([
     function (cb) {
-      led.setHigh(cb);
-    },
-    function (cb) {
-      setTimeout(cb, 1000);
-    },
-    function (cb) {
-      led.setLow(cb);
+      led.set(on = !on, cb);
     },
     function (cb) {
       setTimeout(cb, 1000);
@@ -69,9 +64,10 @@ var udoo = require('udoo');
 var led = udoo.outputPin(13),
     on = false;
 
-setInterval(function () {
+(function loop() {
   led.setSync(on = !on);
-}, 1000);
+  setTimeout(loop, 1000);
+}());
 ```
 
 * [See more comprehensive examples here.](https://github.com/pilwon/node-udoo/tree/master/examples)
@@ -85,16 +81,17 @@ setInterval(function () {
 // Create new pin
 .inputPin(name)
 .outputPin(name)
-.pin(name)        // direction must be set by .setInputMode() / .setOutputMode()
 
-// Chainable pin commands (append `Sync` for synchronous calls)
-.get()            // returns `true` for high/1, `false` for low/0
-.getMode()        // returns one of `udoo.PIN_MODE.*`
-.set(value)       // set value. (value must be boolean)
-.setHigh()        // sets true/high/1
-.setInputMode()   // sets input mode.
-.setLow()         // sets false/low/0
-.setOutputMode()  // 
+// Values (append `Sync` for synchronous calls)
+.get()              // returns `true` for high/1, `false` for low/0
+.setHigh()          // sets true/high/1
+.setLow()           // sets false/low/0
+.set(booleanValue)
+
+// Mode (append `Sync` for synchronous calls)
+.getMode()          // returns one of `udoo.PIN_MODE.*`
+.setInputMode()     // change to input mode
+.setOutputMode()    // change to output mode
 ```
 
 
