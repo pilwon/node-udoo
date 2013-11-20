@@ -13,7 +13,7 @@
 
 ## Usage ([Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage))
 
-**WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` I suggest you upload an empty sketch to SAM3X (Arduino Due microcontroller) so you don't need to worry about these direction conflicts when developing with Node.js)
+**WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` If you are not interacting with SAM3X or don't know what this measn, just upload an empty sketch to SAM3X (Arduino Due microcontroller) so you don't need to worry about direction conflicts.
 
 ### Asynchronous version
 
