@@ -1,10 +1,10 @@
 /*
- * examples/blink.js
+ * examples/arduino-tutorials/blink-async.js
  */
 
 'use strict';
 
-var udoo = require('..');
+var udoo = require('../..');
 
 var led = udoo.outputPin(13),
     on = false;
