@@ -24,8 +24,7 @@ var led = udoo.outputPin(13),
     on = false;
 
 (function loop() {
-  led.set(on = !on, function (err) {
-    if (err) { throw err; }
+  led.set(on = !on, function () {
     setTimeout(loop, 1000);
   });
 }());
@@ -65,8 +64,6 @@ udoo.async.forever(function (cb) {
       setTimeout(cb, 1000);
     }
   ], cb);
-}, function (err) {
-  throw err;
 });
 ```
 
