@@ -78,6 +78,10 @@ var led = udoo.outputPin(13),
 * Pin name can be any of key values in [PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
 
 ```js
+// Reset (set all pins to `INPUT` mode)
+.reset(cb)
+.resetSync()
+
 // Create new pin
 .inputPin(name)
 .outputPin(name)
