@@ -96,6 +96,11 @@ var led = udoo.outputPin(13),
 .getMode(cb)          // returns one of `udoo.PIN_MODE.*`
 .setInputMode(cb)     // change to input mode
 .setOutputMode(cb)    // change to output mode
+
+// Libraries exported for convenience.
+._                    // Lodash (underscore.js)
+.Q                    // Q (promise)
+.async                // Async.js
 ```
 
 

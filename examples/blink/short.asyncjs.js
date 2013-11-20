@@ -4,14 +4,13 @@
 
 'use strict';
 
-var async = require('async'),
-    udoo = require('../..');
+var udoo = require('../..');
 
 var led = udoo.outputPin(13),
     on = false;
 
-async.forever(function (cb) {
-  async.series([
+udoo.async.forever(function (cb) {
+  udoo.async.series([
     function (cb) {
       led.set(on = !on, cb);
     },
