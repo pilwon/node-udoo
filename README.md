@@ -87,15 +87,15 @@ var led = udoo.outputPin(13),
 .outputPin(name)
 
 // Values (append `Sync` for synchronous calls)
-.get()              // returns `true` for high/1, `false` for low/0
-.setHigh()          // sets true/high/1
-.setLow()           // sets false/low/0
+.get(cb)              // returns `true` for high/1, `false` for low/0
+.setHigh(cb)          // sets true/high/1
+.setLow(cb)           // sets false/low/0
 .set(booleanValue)
 
 // Mode (append `Sync` for synchronous calls)
-.getMode()          // returns one of `udoo.PIN_MODE.*`
-.setInputMode()     // change to input mode
-.setOutputMode()    // change to output mode
+.getMode(cb)          // returns one of `udoo.PIN_MODE.*`
+.setInputMode(cb)     // change to input mode
+.setOutputMode(cb)    // change to output mode
 ```
 
 
