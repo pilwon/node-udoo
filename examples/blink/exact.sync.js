@@ -1,5 +1,5 @@
 /*
- * examples/arduino-tutorials/blink-sync.js
+ * examples/blink/exact.sync.js
  */
 
 'use strict';

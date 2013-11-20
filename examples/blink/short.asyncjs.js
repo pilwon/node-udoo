@@ -1,5 +1,5 @@
 /*
- * examples/arduino-tutorials/blink.js
+ * examples/blink/short.asyncjs.js
  */
 
 'use strict';
@@ -7,18 +7,13 @@
 var async = require('async'),
     udoo = require('../..');
 
-var led = udoo.outputPin(13);
+var led = udoo.outputPin(13),
+    on = false;
 
 async.forever(function (cb) {
   async.series([
     function (cb) {
-      led.setHigh(cb);
-    },
-    function (cb) {
-      setTimeout(cb, 1000);
-    },
-    function (cb) {
-      led.setLow(cb);
+      led.set(on = !on, cb);
     },
     function (cb) {
       setTimeout(cb, 1000);

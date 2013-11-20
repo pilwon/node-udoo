@@ -1,5 +1,5 @@
 /*
- * examples/arduino-tutorials/blink-async.js
+ * examples/blink/short.async.js
  */
 
 'use strict';
