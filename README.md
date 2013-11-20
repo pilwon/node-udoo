@@ -33,6 +33,8 @@ var led = udoo.outputPin(13),
 
 ### Another asynchronous version w/ [Async.js](https://github.com/caolan/async)
 
+* Install dependency: `npm install async`
+
 ```js
 var async = require('async'),
     udoo = require('udoo');
