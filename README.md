@@ -106,22 +106,22 @@ var led = udoo.outputPin(13),
 .inputPin(name)
 .outputPin(name)
 
-// Values (append `Sync` for synchronous calls)
-.get(cb)              // returns `true` for high/1, `false` for low/0
-.setHigh(cb)          // sets true/high/1
-.setLow(cb)           // sets false/low/0
+// Pin getter/setter (append `Sync` for synchronous calls)
+.get(cb)              // Returns `true` for high/1, `false` for low/0
+.setHigh(cb)          // Sets true/high/1
+.setLow(cb)           // Sets false/low/0
 .set(booleanValue)
 
-// Mode (append `Sync` for synchronous calls)
-.getMode(cb)          // returns one of `udoo.PIN_MODE.*`
-.setInputMode(cb)     // change to input mode
-.setOutputMode(cb)    // change to output mode
+// Pin mode (append `Sync` for synchronous calls)
+.getMode(cb)          // Returns one of `udoo.PIN_MODE.*`
+.setInputMode(cb)     // Change to input mode
+.setOutputMode(cb)    // Change to output mode
 
 // Constants
 .PIN_MODE
 .PIN_MODE_INVERT
 
-// Libraries exported for convenience.
+// Libraries exported
 ._                    // Lodash (underscore.js)
 .Q                    // Q (promise)
 .async                // Async.js
