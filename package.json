@@ -1,6 +1,6 @@
 {
   "name": "udoo",
-  "description": "UDOO GPIO abstraction library for Node.js. (callback, promise, and synchronous styles are all supported)",
+  "description": "UDOO GPIO abstraction library for Node.js. (callback, promise, and synchronous styles supported)",
   "version": "0.1.0",
   "license": "MIT",
   "author": {
