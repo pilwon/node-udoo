@@ -13,7 +13,18 @@
     "url": "git://github.com/pilwon/node-udoo.git"
   },
   "keywords": [
-    "udoo"
+    "udoo",
+    "board",
+    "gpio",
+    "pin",
+    "arduino",
+    "due",
+    "atmel",
+    "cortex",
+    "sam3x",
+    "arm",
+    "mx6",
+    "freescale"
   ],
   "dependencies": {
     "lodash": "~2.3.0"
