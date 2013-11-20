@@ -8,13 +8,11 @@ var udoo = require('../..');
 
 var led = udoo.outputPin(13);
 
-(function loop() {
+function loop() {
   led
     .setHigh()
     .then(function () {
-      var dfd = udoo.Q.defer();
-      setTimeout(dfd.resolve, 1000);
-      return dfd.promise;
+      return udoo.Q.delay(1000);
     })
     .then(function () {
       return led.setLow();
@@ -22,4 +20,6 @@ var led = udoo.outputPin(13);
     .done(function () {
       setTimeout(loop, 1000);
     });
-}());
+}
+
+udoo.reset().done(loop);

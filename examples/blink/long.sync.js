@@ -8,6 +8,8 @@ var udoo = require('../..');
 
 var led = udoo.outputPin(13);
 
+udoo.resetSync();
+
 (function loop() {
   led.setHighSync();
   setTimeout(function () {

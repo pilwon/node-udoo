@@ -9,6 +9,8 @@ var udoo = require('../..');
 var led = udoo.outputPin(13),
     on = false;
 
-setInterval(function () {
-  led.set(on = !on).done();
-}, 1000);
+udoo.reset().done(function () {
+  setInterval(function () {
+    led.set(on = !on).done();
+  }, 1000);
+});

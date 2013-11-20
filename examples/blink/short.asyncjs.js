@@ -9,7 +9,7 @@ var udoo = require('../..');
 var led = udoo.outputPin(13),
     on = false;
 
-udoo.async.forever(function (cb) {
+function loop(cb) {
   udoo.async.series([
     function (cb) {
       led.set(on = !on, cb);
@@ -18,6 +18,13 @@ udoo.async.forever(function (cb) {
       setTimeout(cb, 1000);
     }
   ], cb);
-}, function (err) {
+}
+
+udoo.async.series([
+  udoo.reset,
+  function (cb) {
+    udoo.async.forever(loop, cb);
+  }
+], function (err) {
   throw err;
-});
+})
