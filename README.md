@@ -33,7 +33,7 @@ var led = udoo.outputPin(13),
 
 ```js
 var async = require('async'),
-    udoo = require('../..');
+    udoo = require('udoo');
 
 var led = udoo.outputPin(13);
 
