@@ -13,13 +13,32 @@
 
 ## Usage
 
+### [Blink](http://arduino.cc/en/Tutorial/Blink) example (asynchronous version)
+
 ```js
 var udoo = require('udoo');
 
-var led = udoo.outputPin(13);
+var led = udoo.outputPin(13),
+    on = false;
+
+(function loop() {
+  led.set(on = !on, function (err) {
+    if (err) { throw err; }
+    setTimeout(loop, 1000);
+  });
+}());
+```
+
+### [Blink](http://arduino.cc/en/Tutorial/Blink) example (synchronous version)
+
+```js
+var udoo = require('udoo');
+
+var led = udoo.outputPin(13),
+    on = false;
 
 setInterval(function () {
-  led.flipSync();
+  led.setSync(on = !on);
 }, 1000);
 ```
 
@@ -29,6 +48,19 @@ setInterval(function () {
 ## API
 
 ```js
+// Create new pin
+.inputPin(name)
+.outputPin(name)
+.pin(name)         // direction must be set by .setInputMode() / .setOutputMode()
+
+// Chainable pin commands (append `Sync` for synchronous calls)
+.get()
+.getMode()
+.set()
+.setHigh()
+.setInputMode()
+.setLow()
+.setOutputMode()
 ```
 
 
