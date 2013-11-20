@@ -1,9 +1,9 @@
-[![Logo](https://raw.github.com/pilwon/node-udoo/master/logo.png)](http://www.udoo.org/)
+[![Logo](https://raw.github.com/pilwon/node-udoo/master/resource/udoo.png)](http://www.udoo.org/)
 
 [![NPM](https://nodei.co/npm/udoo.png?downloads=false&stars=false)](https://npmjs.org/package/udoo) [![NPM](https://nodei.co/npm-dl/udoo.png?months=6)](https://npmjs.org/package/udoo)
 
 
-`udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/)
+`udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported. This library provides user an option to develop UDOO apps on Node.js using asynchronous and synchronous patterns. However, it is recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
 
 
 ## Installation
@@ -12,6 +12,8 @@
 
 
 ## Usage ([Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage))
+
+**WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` I suggest you upload an empty sketch to SAM3X (Arduino Due microcontroller) so you don't need to worry about these direction conflicts when developing with Node.js)
 
 ### Asynchronous version
 
@@ -74,6 +76,8 @@ setInterval(function () {
 
 
 ## API
+
+* Pin name can be any of key values in [PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
 
 ```js
 // Create new pin
