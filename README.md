@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/udoo.png?downloads=false&stars=false)](https://npmjs.org/package/udoo) [![NPM](https://nodei.co/npm-dl/udoo.png?months=6)](https://npmjs.org/package/udoo)
 
 
-`udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported. This library provides user an option to develop UDOO apps on Node.js using asynchronous and synchronous patterns. However, it is strongly recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
+`node-udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported. This library provides user an option to develop UDOO apps on Node.js using asynchronous (both callback & promise styles) and synchronous patterns. However, it is strongly recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
 
 
 ## Installation
@@ -31,19 +31,33 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### Another asynchronous version w/ [Async.js](https://github.com/caolan/async)
-
-* Install dependency: `npm install async`
+### Asynchronous version (w/ [Promise (Q)](https://github.com/kriskowal/q))
 
 ```js
-var async = require('async'),
-    udoo = require('udoo');
+var udoo = require('udoo');
 
 var led = udoo.outputPin(13),
     on = false;
 
-async.forever(function (cb) {
-  async.series([
+(function loop() {
+  led
+    .set(on = !on)
+    .done(function () {
+      setTimeout(loop, 1000);
+    });
+}());
+```
+
+### Another asynchronous version w/ [Async.js](https://github.com/caolan/async)
+
+```js
+var udoo = require('udoo');
+
+var led = udoo.outputPin(13),
+    on = false;
+
+udoo.async.forever(function (cb) {
+  udoo.async.series([
     function (cb) {
       led.set(on = !on, cb);
     },
@@ -75,6 +89,12 @@ var led = udoo.outputPin(13),
 
 ## API
 
+* `node-udoo` API provides all these patterns: **asynchronous style using callbacks**, **asynchronous style using promise**, and **synchronous style**.
+
+* You will be tempted to use synchronous style because the code looks simpler and easier, however it is not the recommended way to program in Node.js.
+
+* All asynchronous API functions accept callback as the last parameter. Whether you pass a callback function or not, they will always return a promise object built using [Q](https://github.com/kriskowal/q). You can do whatever you want with the returned promise, or stick with the traditional callback style.
+
 * Pin name can be any of key values in [PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
 
 ```js
@@ -96,6 +116,10 @@ var led = udoo.outputPin(13),
 .getMode(cb)          // returns one of `udoo.PIN_MODE.*`
 .setInputMode(cb)     // change to input mode
 .setOutputMode(cb)    // change to output mode
+
+// Constants
+.PIN_MODE
+.PIN_MODE_INVERT
 
 // Libraries exported for convenience.
 ._                    // Lodash (underscore.js)
