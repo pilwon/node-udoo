@@ -13,7 +13,7 @@
 
 ## Usage ([Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage))
 
-**WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` If you are not interacting with SAM3X (or you don't really understand what this is all about), just reset all shared pins to `INPUT` mode on `SAM3X` (`Arduino Due` microcontroller) using [this sketch file](https://raw.github.com/pilwon/node-udoo/master/resource/reset.pde) so you can move the potential direction conflict issue out of the way.
+**WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` If you are not interacting with SAM3X (or you don't really understand what this is all about), just reset all shared pins to `INPUT` mode on `SAM3X` (`Arduino Due` microcontroller) using [this sketch file](https://github.com/pilwon/node-udoo/blob/master/resource/reset.pde) so you can move the potential direction conflict issue out of the way.
 
 ### Asynchronous version
 
