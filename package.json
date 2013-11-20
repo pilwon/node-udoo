@@ -24,7 +24,8 @@
     "sam3x",
     "arm",
     "mx6",
-    "freescale"
+    "freescale",
+    "promise"
   ],
   "dependencies": {
     "async": "~0.2.9",
