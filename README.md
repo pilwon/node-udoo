@@ -19,7 +19,7 @@ This library provides user an option to develop UDOO apps on Node.js using async
 
 * [See more comprehensive examples here.](https://github.com/pilwon/node-udoo/tree/master/examples)
 
-### Asynchronous version
+### Asynchronous version w/ callbacks
 
 ```js
 var udoo = require('udoo');
@@ -34,7 +34,7 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### Asynchronous version (w/ [Promise (Q)](https://github.com/kriskowal/q))
+### Asynchronous version w/ [Promise (Q)](https://github.com/kriskowal/q)
 
 ```js
 var udoo = require('udoo');
@@ -51,7 +51,7 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### Another asynchronous version w/ [Async.js](https://github.com/caolan/async)
+### Asynchronous version w/ [Async.js](https://github.com/caolan/async)
 
 ```js
 var udoo = require('udoo');
