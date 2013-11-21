@@ -26,7 +26,7 @@ If you are not interacting with SAM3X (or you don't really understand what this 
 
 [Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage) implemented in different styles:
 
-### Asynchronous version w/ callbacks
+### Asynchronous Version w/ Callbacks
 
 ```js
 var udoo = require('udoo');
@@ -41,7 +41,7 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### Asynchronous version w/ [Promise (Q)](https://github.com/kriskowal/q)
+### Asynchronous Version w/ [Promise (Q)](https://github.com/kriskowal/q)
 
 ```js
 var udoo = require('udoo');
@@ -58,7 +58,7 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-### Asynchronous version w/ [Async.js](https://github.com/caolan/async)
+### Asynchronous Version w/ [Async.js](https://github.com/caolan/async)
 
 ```js
 var udoo = require('udoo');
@@ -78,7 +78,7 @@ udoo.async.forever(function (cb) {
 });
 ```
 
-### Synchronous version (not recommended)
+### Synchronous Version (not recommended)
 
 ```js
 var udoo = require('udoo');
@@ -138,6 +138,22 @@ var led = udoo.outputPin(13),
 .Q                    // Q (promise)
 .async                // Async.js
 ```
+
+
+## Command Line Tool (`udoo`)
+
+`node-udoo` comes with a convenient command line tool (`udoo`) for quick and easy control of UDOO GPIO pins. The command line tool can be installed using the following command:
+
+    $ npm install udoo -g
+
+
+### Available Commands
+
+    $ udoo help
+    $ udoo high [<pinName> <pinName> ...]     # aliases: `udoo on`, `udoo 1`
+    $ udoo low [<pinName> <pinName> ...]      # aliases: `udoo off`, `udoo 0`
+    $ udoo reset [<pinName> <pinName> ...]
+    $ udoo blink [<pinName> <pinName> ...]
 
 
 ## Credits
