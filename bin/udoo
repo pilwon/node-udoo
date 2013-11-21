@@ -73,7 +73,7 @@ exports.help = function (args) {
     console.error('Usage:');
     console.error();
     console.error('%s blink', PROGRAM);
-    console.error('%s blink <pin-name> [<pin-name> ...]', PROGRAM);
+    console.error('%s blink <pinName> [<pinName> ...]', PROGRAM);
     break;
   case 'help':
     console.error('Usage:');
@@ -85,19 +85,19 @@ exports.help = function (args) {
     console.error('Usage:');
     console.error();
     console.error('%s high', PROGRAM);
-    console.error('%s high <pin-name> [<pin-name> ...]', PROGRAM);
+    console.error('%s high <pinName> [<pinName> ...]', PROGRAM);
     break;
   case 'low':
     console.error('Usage:');
     console.error();
     console.error('%s low', PROGRAM);
-    console.error('%s low <pin-name> [<pin-name> ...]', PROGRAM);
+    console.error('%s low <pinName> [<pinName> ...]', PROGRAM);
     break;
   case 'reset':
     console.error('Usage:');
     console.error();
     console.error('%s reset', PROGRAM);
-    console.error('%s reset <pin-name> [<pin-name> ...]', PROGRAM);
+    console.error('%s reset <pinName> [<pinName> ...]', PROGRAM);
     break;
   default:
     console.error('Usage: %s <command>', PROGRAM);
