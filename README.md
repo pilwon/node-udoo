@@ -165,9 +165,7 @@ var led = udoo.outputPin(13),
 
 ## TODOs
 
-Here is a list of ports need to be supported.
-
-Please contribute to the `node-udoo` project by sending [Pull Requests](https://help.github.com/articles/using-pull-requests).
+Here is a list of various ports need to be supported. Please contribute to the `node-udoo` project by sending [Pull Requests](https://help.github.com/articles/using-pull-requests).
 
 1. ~~GPIO (all 51 shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf))~~
 2. PWM
