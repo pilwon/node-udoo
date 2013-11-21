@@ -125,7 +125,7 @@ var led = udoo.outputPin(13),
 .get(callback)              // Returns `true` for high/1, `false` for low/0
 .setHigh(callback)          // Sets true/high/1
 .setLow(callback)           // Sets false/low/0
-.set(value)                 // Sets (boolean) value
+.set(value, callback)       // Sets (boolean) value
 
 // Pin mode (append `Sync` for synchronous calls)
 .getMode(callback)          // Returns one of `udoo.PIN_MODE.*`
