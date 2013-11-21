@@ -163,6 +163,24 @@ var led = udoo.outputPin(13),
     $ udoo blink [<pinName> <pinName> ...]
 
 
+## TODOs
+
+Here is a list of ports need to be supported.
+
+Please contribute to the `node-udoo` project by sending [Pull Requests](https://help.github.com/articles/using-pull-requests).
+
+1. ~~GPIO (all 51 shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf))~~
+2. PWM
+3. SPI
+4. UARTs
+5. I2C
+6. Can Bus
+7. USB-OTG
+8. DAC
+9. JTAG
+10. DMA
+
+
 ## Credits
 
   See the [contributors](https://github.com/pilwon/node-udoo/graphs/contributors).
