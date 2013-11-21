@@ -3,7 +3,9 @@
 [![NPM](https://nodei.co/npm/udoo.png?downloads=false&stars=false)](https://npmjs.org/package/udoo) [![NPM](https://nodei.co/npm-dl/udoo.png?months=6)](https://npmjs.org/package/udoo)
 
 
-`node-udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported. This library provides user an option to develop UDOO apps on Node.js using asynchronous (both callback & promise styles) and synchronous patterns. However, it is strongly recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
+`node-udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported.
+
+This library provides user an option to develop UDOO apps on Node.js using asynchronous (both callback & promise styles) and synchronous patterns. However, it is strongly recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
 
 
 ## Installation
@@ -14,6 +16,8 @@
 ## Usage ([Blink](http://arduino.cc/en/Tutorial/Blink) example from [Arduino Tutorials](http://arduino.cc/en/Tutorial/HomePage))
 
 **WARNING**: Please read `GPIOs Warnings` section of the [UDOO Starting Manual](https://raw.github.com/pilwon/node-udoo/master/resource/manual.pdf). It says, `When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.` If you are not interacting with SAM3X (or you don't really understand what this is all about), just reset all shared pins to `INPUT` mode on `SAM3X` (`Arduino Due` microcontroller) using [this sketch file](https://github.com/pilwon/node-udoo/blob/master/resource/reset.pde) so you can move the potential direction conflict issue out of the way.
+
+* [See more comprehensive examples here.](https://github.com/pilwon/node-udoo/tree/master/examples)
 
 ### Asynchronous version
 
@@ -81,8 +85,6 @@ var led = udoo.outputPin(13),
 }());
 ```
 
-* [See more comprehensive examples here.](https://github.com/pilwon/node-udoo/tree/master/examples)
-
 
 ## API
 
@@ -96,7 +98,7 @@ var led = udoo.outputPin(13),
 
 ```js
 // Reset (set all pins to `INPUT` mode)
-.reset(cb)
+.reset(callback)
 .resetSync()
 
 // Create new pin
@@ -104,15 +106,15 @@ var led = udoo.outputPin(13),
 .outputPin(name)
 
 // Pin getter/setter (append `Sync` for synchronous calls)
-.get(cb)              // Returns `true` for high/1, `false` for low/0
-.setHigh(cb)          // Sets true/high/1
-.setLow(cb)           // Sets false/low/0
-.set(booleanValue)
+.get(callback)              // Returns `true` for high/1, `false` for low/0
+.setHigh(callback)          // Sets true/high/1
+.setLow(callback)           // Sets false/low/0
+.set(value)                 // Sets (boolean) value
 
 // Pin mode (append `Sync` for synchronous calls)
-.getMode(cb)          // Returns one of `udoo.PIN_MODE.*`
-.setInputMode(cb)     // Change to input mode
-.setOutputMode(cb)    // Change to output mode
+.getMode(callback)          // Returns one of `udoo.PIN_MODE.*`
+.setInputMode(callback)     // Change to input mode
+.setOutputMode(callback)    // Change to output mode
 
 // Constants
 .PIN_MODE
