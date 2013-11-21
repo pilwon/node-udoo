@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/udoo.png?downloads=false&stars=false)](https://npmjs.org/package/udoo) [![NPM](https://nodei.co/npm-dl/udoo.png?months=6)](https://npmjs.org/package/udoo)
 
 
-`node-udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported.
+`node-udoo` is a [UDOO](http://www.udoo.org/) [GPIO](https://www.kernel.org/doc/Documentation/gpio.txt) abstraction library for [Node.js](http://nodejs.org/) & [command line tool](#command-line-tool). All shared GPIO pins described in the [UDOO Pinout Diagram](https://raw.github.com/pilwon/node-udoo/master/resource/pinout-diagram.pdf) are supported.
 
 This library provides user an option to develop UDOO apps on Node.js using asynchronous (both callback & promise styles) and synchronous patterns. However, it is strongly recommended to stick to Node.js' asynchronous (non-blocking I/O) style.
 
@@ -140,7 +140,7 @@ var led = udoo.outputPin(13),
 ```
 
 
-## Command Line Tool (`udoo`)
+## Command Line Tool
 
 `node-udoo` comes with a convenient command line tool (`udoo`) for quick and easy control of UDOO GPIO pins. The command line tool can be installed using the following command:
 
