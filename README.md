@@ -106,9 +106,13 @@ var led = udoo.outputPin(13),
 * Pin name can be any of key values in [PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
 
 ```js
+// List all supported pins
+.gpioNumbers()
+.pinNames()
+
 // Create new pin
-.inputPin(name)
-.outputPin(name)
+.inputPin(pinName)
+.outputPin(pinName)
 
 // Pin getter/setter (append `Sync` for synchronous calls)
 .get(callback)              // Returns `true` for high/1, `false` for low/0
