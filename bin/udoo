@@ -185,7 +185,7 @@ exports.main = function () {
     return exports.help();
   }
 
-  // Command alias.
+  // Command aliases.
   if (_.contains(['0', 'off'], command)) {
     command = 'low';
   } else if (_.contains(['1', 'on'], command)) {
