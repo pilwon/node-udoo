@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+
+/*
+ * bin/udoo
+ */
+
+'use strict';
+
+var assert = require('assert'),
+    path = require('path'),
+    util = require('util');
+
+require('colors');
+
+var _ = require('lodash'),
+    pkg = require('../package'),
+    udoo = require('..');
+
+var COMMANDS = [
+  'blink',
+  'help',
+  'reset'
+];
+
+var PROGRAM = path.basename(process.argv[1]);
+
+exports.blink = function (args) {
+  console.log('blink');
+};
+
+exports.help = function (args) {
+  var command = (args || [])[0];
+
+  switch (command) {
+  case 'blink':
+    console.error('Usage:');
+    console.error();
+    console.error('%s blink', PROGRAM);
+    console.error('%s blink <pin-name> [<pin-name> ...]', PROGRAM);
+    break;
+  case 'help':
+    console.error('Usage:');
+    console.error();
+    console.error('%s help', PROGRAM);
+    console.error('%s help <command>', PROGRAM);
+    break;
+  case 'reset':
+    console.error('Usage:');
+    console.error();
+    console.error('%s reset', PROGRAM);
+    console.error('%s reset <pin-name> [<pin-name> ...]', PROGRAM);
+    break;
+  default:
+    console.error('Usage: %s <command>', PROGRAM);
+    console.error();
+    console.error('where <command> is one of:');
+    _.each(COMMANDS, function (command) {
+      console.error('    %s', command);
+    });
+    break;
+  }
+
+  console.error();
+  console.error('[options]');
+  console.error('    -h                quick help on command (--help)');
+  console.error();
+  console.error(util.format('%s@%s: %s', pkg.name, pkg.version, process.argv[1]).grey);
+  console.error('node-udoo: https://github.com/pilwon/node-udoo'.grey);
+
+  process.exit(1);
+};
+
+exports.reset = function (args) {
+  if (_.isEmpty(args)) {
+    return udoo.resetSync();
+  }
+  args.forEach(function (pinName) {
+    udoo.inputPin(pinName).resetSync();
+  });
+};
+
+exports.main = function () {
+  var args = process.argv.slice(2),
+      i;
+
+  // Parse help option.
+  if (_.contains(args, '-v') || _.contains(args, '--version')) {
+    return console.log(pkg.version);
+  }
+
+  // Parse help option.
+  if (_.contains(args, '-h') || _.contains(args, '--help')) {
+    return exports.help(_.difference(args, ['-h', '--help']));
+  }
+
+  // Parse command & command args.
+  var command = args[0],
+      commandArgs = args.slice(1);
+
+  // Handle empty command.
+  if (_.isEmpty(args[0])) {
+    return exports.help();
+  }
+
+  // Handle invalid command.
+  if (!_.contains(COMMANDS, args[0])) {
+    console.error(util.format('Invalid command: %s', args[0]).red);
+    console.error();
+
+    return exports.help();
+  }
+
+  // Execute command.
+  assert(_.isFunction(exports[command]), 'Not yet implemented: ' + command);
+  process.title = util.format('%s %s %s', PROGRAM, command, commandArgs.join(' '));
+  exports[command](commandArgs);
+};
+
+if (require.main === module) {
+  exports.main();
+}

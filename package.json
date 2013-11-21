@@ -39,6 +39,9 @@
     "grunt-contrib-watch": "~0.5.3",
     "matchdep": "~0.3.0"
   },
+  "bin": {
+    "udoo": "./bin/udoo"
+  },
   "scripts": {
     "prepublish": "npm prune"
   }
