@@ -27,4 +27,4 @@ udoo.async.series([
   }
 ], function (err) {
   throw err;
-})
+});
