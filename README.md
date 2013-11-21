@@ -1,5 +1,7 @@
 [![Logo](https://raw.github.com/pilwon/node-udoo/master/resource/udoo.png)](http://www.udoo.org/)
 
+[![Demo Video on YouTube](https://raw.github.com/pilwon/node-udoo/master/resource/youtube.png)](https://www.youtube.com/watch?v=tjS-Fe-7dDA)
+
 [![NPM](https://nodei.co/npm/udoo.png?downloads=false&stars=false)](https://npmjs.org/package/udoo) [![NPM](https://nodei.co/npm-dl/udoo.png?months=6)](https://npmjs.org/package/udoo)
 
 
