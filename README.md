@@ -144,7 +144,7 @@ var led = udoo.outputPin(13),
 
 `node-udoo` comes with a convenient command line tool (`udoo`) for quick and easy control of UDOO GPIO pins. The command line tool can be installed using the following command:
 
-    $ npm install udoo -g
+    $ sudo npm install udoo -g
 
 
 ### Available Commands
