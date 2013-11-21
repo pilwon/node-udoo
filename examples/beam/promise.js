@@ -9,7 +9,8 @@ var udoo = require('../..');
 var DELAY_LED = 5,
     DELAY_LOOP = 500,
     PIN_NUMBER_FROM = 2,
-    PIN_NUMBER_TO = 15;
+    PIN_NUMBER_TO = 15,
+    SLOWDOWN_FACTOR = 7;
 
 var leds = [],
     slowDown = false,
@@ -23,7 +24,7 @@ function loop() {
       return led
         .setHigh()
         .then(function () {
-          return udoo.Q.delay((slowDown ? 7 : 1) * DELAY_LED);
+          return udoo.Q.delay((slowDown ? SLOWDOWN_FACTOR : 1) * DELAY_LED);
         })
         .then(function () {
           return led.setLow();
