@@ -50,8 +50,6 @@ exports.blink = function (args) {
     leds.push(udoo.outputPin(pinName));
   });
 
-  udoo.resetSync();
-
   setInterval(function () {
     on = !on;
     leds.map(function (led, cb) {
