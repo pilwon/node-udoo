@@ -12,7 +12,7 @@ This library provides user an option to develop UDOO apps on Node.js using async
 
     $ npm install udoo
 
-* [Compiled Node.js and NPM binaries for Linaro Ubuntu](https://github.com/pilwon/nodejs-for-linaro-ubuntu).
+* [Compiled Node.js and NPM binaries for Linaro Ubuntu can be found here.](https://github.com/pilwon/nodejs-for-linaro-ubuntu)
 
 
 ## GPIOs Warnings
