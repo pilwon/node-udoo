@@ -110,7 +110,7 @@ var led = udoo.outputPin(13),
 
 * All asynchronous API functions accept callback as the last parameter. Whether you pass a callback function or not, they will always return a promise object built using [Q](https://github.com/kriskowal/q). You can do whatever you want with the returned promise, or stick with the traditional callback style.
 
-* Pin name can be any of key values in [PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
+* Pin name can be any of key values in [_PIN_MAPPING](https://github.com/pilwon/node-udoo/blob/master/lib/constant.js).
 
 ```js
 // List all supported pins
