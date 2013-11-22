@@ -1,5 +1,5 @@
 /*
- * reset.pde
+ * reset.ino
  *
  * This Arduino sketch resets all pins shared between
  * i.MX6 and SAM3X processors on UDOO board to INPUT mode.

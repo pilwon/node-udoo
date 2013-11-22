@@ -26,7 +26,7 @@ Please pay attention to the `GPIOs Warnings` section of the [UDOO Starting Manua
 
 > When changing i.MX6 GPIOs directions, it is necessary to pay special attention. New direction must be compatible with SAM3x8E pinout configuration and/or with the load of the physical pin.
 
-If you are not interacting with SAM3X (or you don't really understand what this is all about), just reset all shared pinouts to `INPUT` mode on `SAM3X` (`Arduino Due` microcontroller) using [this sketch file](https://github.com/pilwon/node-udoo/blob/master/resource/reset.pde) so you can move the potential direction conflict issue out of the way.
+If you are not interacting with SAM3X (or you don't really understand what this is all about), just reset all shared pinouts to `INPUT` mode on `SAM3X` (`Arduino Due` microcontroller) using [this sketch file](https://github.com/pilwon/node-udoo/blob/master/resource/reset.ino) so you can move the potential direction conflict issue out of the way.
 
 
 ## Usage
